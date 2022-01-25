@@ -2,9 +2,13 @@
     const clickedElement = this;
   
     /* [DONE] remove class 'active' from all article links  */
+
+    const titleList = document.querySelectorAll(.optTitleListSelector);
   
-    const activeLinks = document.querySelectorAll('.titles a.active');
-  
+    function clearMessages(){
+      document.getElementById('messages').innerHTML = '.titleList';
+    }
+
     for(let link of activeLinks){
       link.classList.remove('active');
     }
@@ -16,7 +20,7 @@
   
     /* [DONE] remove class 'active' from all articles */
 
-    const activeArticles = document.querySelectorAll('article.active');
+    const activeArticles = document.querySelectorAll(.optTitleListSelector);
 
     for(let article of activeArticles){
       article.classList.remove('active');
@@ -35,7 +39,7 @@
     articleToDisplay.classList.add('active')
   }
   
-  const links = document.querySelectorAll('.titles a');
+  const links = document.querySelectorAll(.optTitleListSelector);
   
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
