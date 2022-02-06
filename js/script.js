@@ -3,11 +3,8 @@
   
     /* [DONE] remove class 'active' from all article links  */
 
-    const titleList = document.querySelectorAll(.optTitleListSelector);
-  
-    function clearMessages(){
-      document.getElementById('messages').innerHTML = '.titleList';
-    }
+    const activeLinks = document.querySelectorAll('.titles a.active');
+
 
     for(let link of activeLinks){
       link.classList.remove('active');
@@ -20,7 +17,7 @@
   
     /* [DONE] remove class 'active' from all articles */
 
-    const activeArticles = document.querySelectorAll(.optTitleListSelector);
+    const activeArticles = document.querySelectorAll('article.active');
 
     for(let article of activeArticles){
       article.classList.remove('active');
@@ -39,8 +36,56 @@
     articleToDisplay.classList.add('active')
   }
   
-  const links = document.querySelectorAll(.optTitleListSelector);
+  const links = document.querySelectorAll('.titles a');
   
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
+
+  const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+  function generateTitleLinks(){
+
+  /* remove contents of titleList */
+
+  const titleList = document.querySelector(optTitleListSelector);
+
+  /* for each article */
+
+  const articleList = document.querySelectorAll(optArticleSelector);
+
+  let html = '';
+
+  for(let article of articles){
+
+    /* get the article id */
+
+  const articleId = document.('id');
+
+    /* find the title element */
+
+  const articleId = clickedElement.getAttribute('id');
+
+    /* get the title from the title element */
+
+  const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+
+    /* create HTML of the link */
+
+  const linkHTML = '<li><a href="#'articleId'"><span>'articleTitle'</span></a></li>';
+
+    /* insert link into titleList */
+
+  titleList.innerHTML = titleList.innerHTML + linkHTML;
+ 
+  html = html + linkHTML;
+}
+
+titleList.innerHTML = html;
+}
+
+console.log
+
+generateTitleLinks();
