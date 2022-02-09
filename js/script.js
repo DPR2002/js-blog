@@ -42,50 +42,40 @@
     link.addEventListener('click', titleClickHandler);
   }
 
-  const optArticleSelector = '.post',
+const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
-  function generateTitleLinks(){
+function generateTitleLinks(){
 
   /* remove contents of titleList */
 
   const titleList = document.querySelector(optTitleListSelector);
-
+  titleList.innerHTML = '';
   /* for each article */
 
   const articleList = document.querySelectorAll(optArticleSelector);
 
-  let html = '';
+  for(let article of articleList){
 
-  for(let article of articles){
+      /* get the article id */
 
-    /* get the article id */
+    const articleId = article.getAttribute('id');
 
-  const articleId = document.('id');
+      /* get the title from the title element */
 
-    /* find the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
-  const articleId = clickedElement.getAttribute('id');
+      /* create HTML of the link */
 
-    /* get the title from the title element */
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
-  const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      /* insert link into titleList */
 
-    /* create HTML of the link */
-
-  const linkHTML = '<li><a href="#'articleId'"><span>'articleTitle'</span></a></li>';
-
-    /* insert link into titleList */
-
-  titleList.innerHTML = titleList.innerHTML + linkHTML;
- 
-  html = html + linkHTML;
+    titleList.innerHTML = titleList.innerHTML + linkHTML;
+  }
 }
 
-titleList.innerHTML = html;
-}
-
-console.log
+console.log();
 
 generateTitleLinks();
